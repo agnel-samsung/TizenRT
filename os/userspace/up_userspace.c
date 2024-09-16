@@ -43,7 +43,9 @@
 #include <tinyara/arch.h>
 
 #ifdef CONFIG_XIP_ELF
-extern void * _stext_flash;
+extern void * _stext;
+extern void * _etext;
+extern void * _stext_app;
 extern void * _sbss;
 extern void * _ebss;
 extern void * _sdata;
@@ -57,6 +59,9 @@ extern void * _ectors;
 extern void * _eapp_flash;
 extern void * _sapp_ram;
 extern void * _eapp_ram;
+extern void * _srodata;
+extern void * _erodata;
+extern void * _srodata_app;
 
 extern int main(int argc, char **argv);
 #endif
@@ -82,12 +87,17 @@ const struct userspace_s userspace __attribute__((section(".userspace"))) = {
 #endif
 
 #ifdef CONFIG_XIP_ELF
-	.text_start = &_stext_flash,
 	.bss_start = &_sbss,
 	.bss_end = &_ebss,
 	.data_start_in_ram = &_sdata,
 	.data_end_in_ram = &_edata,
 	.data_start_in_flash = &_sdata_app,
+	.text_start_in_ram = &_stext,
+	.text_end_in_ram = &_etext,
+	.text_start_in_flash = &_stext_app,
+	.rodata_start_in_ram = &_srodata,
+	.rodata_end_in_ram = &_erodata,
+	.rodata_start_in_flash = &_srodata_app,
 	.heap_start = &_sapp_heap,
 	.heap_end = &_eapp_heap,
 	.sctors = &_sctors,

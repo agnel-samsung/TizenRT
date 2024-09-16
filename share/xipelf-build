@@ -1,0 +1,321 @@
+========== Current config does not support external flash! ==========
+make[2]: Leaving directory '/root/tizenrt/os/board/rtl8730e/src'
+LD: tinyara
+make[1]: Leaving directory '/root/tizenrt/os/arch/arm/src'
+CP: tinyara.axf.bin
+Preparing final ../build/output/bin/app1 binary
+Verify ../build/output/bin/common
+Preparing final ../build/output/bin/common binary
+Start the Board Specific Work for Binary
+Realtek Postbuild Actions
+========== Image Info HEX ==========
+/root/tizenrt/build/configs/rtl8730e/../../../build/output/bin/target_img2.axf  :
+section                     size         addr
+.xip_image2.text         0xab29c    0xe000020
+.code                     0x2000   0x60100000
+.ARM.exidx                   0x8    0xe0ab2bc
+.fini_array                0xd3c    0xe0ab2c4
+.data                      0xc14   0x60102000
+.bss                     0x13a48   0x60102c40
+.heap                     0x2000   0x60116688
+.stack                     0x800   0x60118700
+.psram_heap.start            0x0   0x60118f00
+.bluetooth_trace.text     0xe933   0xc8800000
+.ARM.attributes             0x35          0x0
+.debug_line              0xdae80          0x0
+.debug_info             0x31f6b9          0x0
+.debug_abbrev            0x6f8f6          0x0
+.debug_aranges            0xc238          0x0
+.debug_str               0x3b1b9          0x0
+.debug_ranges            0x12c60          0x0
+.comment                    0x76          0x0
+.debug_frame             0x1c2cc          0x0
+.debug_loc               0xc6891          0x0
+Total                   0x67a1f7
+
+
+   text    data     bss     dec     hex filename
+0xbbbd7   0xc14 0x16f84  866159   d376f /root/tizenrt/build/configs/rtl8730e/../../../build/output/bin/target_img2.axf
+0xbbbd7   0xc14 0x16f84  866159   d376f (TOTALS)
+========== Image Info HEX ==========
+========== Image Info DEC ==========
+/root/tizenrt/build/configs/rtl8730e/../../../build/output/bin/target_img2.axf  :
+section                    size         addr
+.xip_image2.text         701084    234881056
+.code                      8192   1611661312
+.ARM.exidx                    8    235582140
+.fini_array                3388    235582148
+.data                      3092   1611669504
+.bss                      80456   1611672640
+.heap                      8192   1611753096
+.stack                     2048   1611761408
+.psram_heap.start             0   1611763456
+.bluetooth_trace.text     59699   3363831808
+.ARM.attributes              53            0
+.debug_line              896640            0
+.debug_info             3274425            0
+.debug_abbrev            456950            0
+.debug_aranges            49720            0
+.debug_str               242105            0
+.debug_ranges             76896            0
+.comment                    118            0
+.debug_frame             115404            0
+.debug_loc               813201            0
+Total                   6791671
+
+
+   text    data     bss     dec     hex filename
+ 768983    3092   94084  866159   d376f /root/tizenrt/build/configs/rtl8730e/../../../build/output/bin/target_img2.axf
+ 768983    3092   94084  866159   d376f (TOTALS)
+========== Image Info DEC ==========
+========== linker img2 end ==========
+========== Image manipulating start ==========
+========== Image manipulating end ==========
+========== Copy_bootloader ==========
+========== Copy flashloader into bin output folder==========
+========== Copy ap_image_all into bin output folder==========
+========== Concatenate_binary ==========
+428352+0 records in
+428352+0 records out
+428352 bytes (428 kB, 418 KiB) copied, 0.66102 s, 648 kB/s
+========== Remove large size binary, temporary fix==========
+CP: km0_km4_ap_image_all.hex
+========== Start to make boot parameters ==========
+
+========== Verification of partition settings ==========
+=> Partition verification SUCCESS!! The setting of all partitions is OK.
+
+========== Size Verification of built Binaries ==========
+Type        Binary Size     Partition Size      used(%)
+ KERNEL      1,427,834 bytes    1,888,256 bytes     75.62%    PASS
+ APP1              461 bytes    1,417,216 bytes      0.03%    PASS
+ COMMON        128,733 bytes    3,112,960 bytes      4.14%    PASS
+=> Size verification SUCCESS!! The size of all binaries are OK.
+
+=== Common Package Header Information ===
+< Unsigned Common Package >
+        Header Size     : 12
+        Package Version : 200204
+        File Size       : 128717
+        * Checksum verification Done.
+        * Version Matched between filename and header.
+=> Header verification SUCCESS!!
+
+=== App Package Header Information ===
+< Unsigned App Package >
+        Header Size       : 44
+        Package Type      : ELF(1)
+        Main Priority     : 180
+        Loading Priority  : LOADING_LOW(1)
+        File Size         : 413
+        Package Name      : app
+        Package Version   : 190412
+        RAM Size          : 8388608
+        Stack Size        : 8192
+        Kernel Version    : 200204
+        * Checksum verification Done.
+        * Version Matched between filename and header.
+=> Header verification SUCCESS!!
+
+=== Kernel Package Header Information ===
+< Cannot check the signing >
+        Header Size        : 12
+        Package Version    : 200204
+        File Size          : 1427818
+        Secure Header Size : 32
+        * Checksum verification Done.
+        * Version Matched between filename and header.
+=> Header verification SUCCESS!!
+
+Check Docker Image
+Docker Image Version : tizenrt/tizenrt:2.0.0
+======================================================
+  "Select build Option"
+======================================================
+  "1. Build with Current Configuration"
+  "2. Re-configure"
+  "3. Modify Current Configuration"
+  "4. Clean Build"
+  "5. Clean Build and Re-Configure"
+  "6. Build SmartFS Image"
+  "d. Download"
+  "t. Build Test"
+  "x. Exit"
+======================================================
+d
+==================================================
+  "Select download option"
+==================================================
+  "1. ALL"
+  "2. BL1"
+  "3. KERNEL"
+  "4. USERFS"
+  "5. BOOTPARAM"
+  "6. ERASE KERNEL"
+  "7. ERASE USERFS"
+  "8. ERASE ALL"
+  "u. USBrule"
+  "x. Exit"
+==================================================
+1
+
+ Port ttyUSB1 is selected
+
+ ############################################
+ WARNINGS:
+ 1. Make sure the board is in DOWNLOAD MODE.
+ 2. Make sure NO other application like putty,
+ is occupying ttyUSB1.
+ ############################################
+
+
+================================ < Flash Partition Information > ================================
+NAME       :           bl1      reserved           ftl            ss        kernel        common          app1        kernel        common          app1        userfs         micom     bootparam
+SIZE(in KB):            60            40            12           400          1844          3040          1384          1844          3040          1384          2048          1280             8
+Addr       :     0x8000000     0x800F000     0x8019000     0x801C000     0x8080000     0x824D000     0x8545000     0x869F000     0x886C000     0x8B64000     0x8CBE000     0x8EBE000     0x8FFE000
+=================================================================================================
+
+Starting Download...
+
+==========================
+Downloading bl1 binary
+==========================
+
+ImageTool 8730e for SDA V1.3
+
+Number of Images: 1
+
+Download km4_boot_all.bin to: 0x08000000
+
+Open serial port         ......    OK
+
+UART download...
+Check download mode      ......    OK
+Download flashloader     ......    OK
+Internal flash size: 16 MB + External flash size: 32 MB
+--> Package 1.
+Check flash size         ......    OK
+Flash protection         ......    OK
+Erase flash              ......    OK
+Download image           ......    OK
+Check checksum           ......    OK
+Close serial port        ......    OK
+
+==========================
+Downloading kernel binary
+==========================
+
+ImageTool 8730e for SDA V1.3
+
+Number of Images: 1
+
+Download kernel_rtl8730e_200204.trpk to: 0x08080000
+
+Open serial port         ......    OK
+
+UART download...
+Check download mode      ......    OK
+Download flashloader     ......    OK
+Internal flash size: 16 MB + External flash size: 32 MB
+--> Package 1.
+Check flash size         ......    OK
+Flash protection         ......    OK
+Erase flash              ......    OK
+Download image           ......    OK
+Check checksum           ......    OK
+Close serial port        ......    OK
+
+==========================
+Downloading common binary
+==========================
+
+ImageTool 8730e for SDA V1.3
+
+Number of Images: 1
+
+Download common_rtl8730e_200204.trpk to: 0x0824D000
+
+Open serial port         ......    OK
+
+UART download...
+Check download mode      ......    OK
+Download flashloader     ......    OK
+Internal flash size: 16 MB + External flash size: 32 MB
+--> Package 1.
+Check flash size         ......    OK
+Flash protection         ......    OK
+Erase flash              ......    OK
+Download image           ......    OK
+Check checksum           ......    OK
+Close serial port        ......    OK
+
+==========================
+Downloading app1 binary
+==========================
+
+ImageTool 8730e for SDA V1.3
+
+Number of Images: 1
+
+Download app1_rtl8730e_190412.trpk to: 0x08545000
+
+Open serial port         ......    OK
+
+UART download...
+Check download mode      ......    OK
+Download flashloader     ......    OK
+Internal flash size: 16 MB + External flash size: 32 MB
+--> Package 1.
+Check flash size         ......    OK
+Flash protection         ......    OK
+Erase flash              ......    OK
+Download image           ......    OK
+Check checksum           ......    OK
+Close serial port        ......    OK
+
+==========================
+Downloading userfs binary
+==========================
+rtl8730e_smartfs.bin not present
+
+==========================
+Downloading bootparam binary
+==========================
+
+ImageTool 8730e for SDA V1.3
+
+Number of Images: 1
+
+Download bootparam.bin to: 0x08FFE000
+
+Open serial port         ......    OK
+
+UART download...
+Check download mode      ......    OK
+Download flashloader     ......    OK
+Internal flash size: 16 MB + External flash size: 32 MB
+--> Package 1.
+Check flash size         ......    OK
+Flash protection         ......    OK
+Erase flash              ......    OK
+Download image           ......    OK
+Check checksum           ......    OK
+Close serial port        ......    OK
+
+Download COMPLETE!
+======================================================
+  "Select build Option"
+======================================================
+  "1. Build with Current Configuration"
+  "2. Re-configure"
+  "3. Modify Current Configuration"
+  "4. Clean Build"
+  "5. Clean Build and Re-Configure"
+  "6. Build SmartFS Image"
+  "d. Download"
+  "t. Build Test"
+  "x. Exit"
+======================================================
+x
+test@Jammy:~/TizenRT/TizenRT/os$
+
