@@ -138,8 +138,6 @@ SECTIONS
 
 		*(.text)		/* .text sections (code) */
 		EXCLUDE_FILE (*arm_mmu.o arm_cpugating.o)*(.text*)      /* .text* sections (code) */
-		*(.rodata)      /* .rodata sections (constants, strings, etc.) */
-		*(.rodata*)     /* .rodata* sections (constants, strings, etc.) */
 		*(.glue_7)      /* glue arm to thumb code */
 		*(.glue_7t)     /* glue thumb to arm code */
 		*(.vfp11_veneer)
@@ -163,6 +161,12 @@ SECTIONS
 		_etext_flash = ABSOLUTE(.);
 		__flash_text_end__ = .;
 	} > CA32_IMG2_XIP
+
+    .rodata :
+    {
+            *(.rodata)      /* .rodata sections (constants, strings, etc.) */
+            *(.rodata*)     /* .rodata* sections (constants, strings, etc.) */
+    } > CA32_IMG2_XIP
 
 	.code :
 	{
