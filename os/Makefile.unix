@@ -60,6 +60,7 @@ include $(TOPDIR)/tools/Config.mk
 #
 #  V=1,2: Enable echo of commands
 #  V=2:   Enable bug/verbose options in tools and scripts
+V=2
 
 ifeq ($(V),1)
 export Q :=
@@ -606,6 +607,8 @@ ifeq ($(CONFIG_DEBUG_DISPLAY_SYMBOL),y)
 else
 	$(call DELFILE, ${TOOLSDIR}/fs/contents-romfs/System.map)
 endif
+	$(Q) cd ..; git checkout .
+	$(Q) cd ..; git stash pop
 
 # $(BIN)
 #
@@ -651,10 +654,21 @@ ota_img:
 # pass1dep: Create pass1 build dependencies
 # pass2dep: Create pass2 build dependencies
 
-pass1dep: context tools/mkdeps$(HOSTEXEEXT) tools/compression/mkcompresstool.sh
+pass1dep: subst context tools/mkdeps$(HOSTEXEEXT) tools/compression/mkcompresstool.sh
 	$(Q) for dir in $(USERDEPDIRS) ; do \
 		$(MAKE) -C $$dir TOPDIR="$(TOPDIR)" EXTDIR="$(EXTDIR)" depend ; \
 	done
+
+#   Establish pwd
+#   Check for availability of subst, grep, sed
+#   git stash -a and capture the stash id
+#   Try git stash create, git stash branch for atomicity, consistency   
+subst:
+	$(Q) echo "subst: `pwd`"
+	$(Q) cd tools/subst; ./build.sh
+	$(Q) cd ..; os/tools/subst/subst.sh
+
+
 
 pass2dep: context tools/mkdeps$(HOSTEXEEXT)
 	$(Q) for dir in $(KERNDEPDIRS) ; do \

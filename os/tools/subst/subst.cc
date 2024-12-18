@@ -14,7 +14,9 @@ using jobject = boost::json::object;
 std::string encode(int n);
 
 std::string HashTable::next_hash() {
-	return (std::stringstream() << omark << encode(i++) << cmark).str();
+	std::stringstream ss;
+	ss << omark << encode(i++) << cmark;
+    return ss.str();
 }
 
 HashTable::HashTable() : i(0), omark("<"), cmark(">") {}
