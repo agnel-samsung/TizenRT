@@ -1,0 +1,1 @@
+log("Width: %d, Height: %d", w, h);

@@ -1,0 +1,2 @@
+printf("x: %d, y: %d", x, y, "%8.3f metres of %s weighs %+5.1fkg", len, material, weight);
+
