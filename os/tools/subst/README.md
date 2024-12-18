@@ -122,9 +122,9 @@ Add the install location to the PATH variable and execute the subst tool:
 ```
 This is a sample invocation on the TizenRT code base. (`printf` and variants are excluded for reasons not related to this discussion.) The generated look-up table is saved to a JSON file which will be used later to re-construct the output from the binaries.
 
-### Integrate with Makefile.unix
+### Integration with Makefile.unix
 
-WIP
+The subst target in os/Makefile.unix invokes the os/tools/subst/build.sh script to build the subst binary. After this the binary is invoked using the os/tools/subst/subst.sh script. Working of the script is similar to the manual invocation described above. In addition, the script uses git stash to save the existing state of the source tree and restore it after running the substitution and build. The JSON string table is saved as subst.json in the base directory (parent directory of os).
 
 TODO
 ====
@@ -136,5 +136,8 @@ TODO
  - Undo all changes from subst after build (or commit as separate branch)
  - Restore stashed changes post build
  - Report location of .json and how to invoke custom minicom tool
+ - Restore state gracefully on build failure i.e. undo subst changes, restore saved state
+ - git stash pop/apply fails when stashed files have changed
+
 
 
